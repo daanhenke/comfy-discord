@@ -10,8 +10,10 @@ export const registerCommonComponents = async () =>
     add('Text', await getModule(filterByDisplayName('Text')))
     add('Button', await getModule(filterByProperties('Link', 'Hovers', 'Looks')))
     add('Icon', await getModule(filterByDisplayName('Icon')))
-    add('Image', await getModule(filterByDisplayName('LazyImage')))
+    add('LazyImage', await getModule(filterByDisplayName('LazyImage')))
+    add('Switch', await getModule(filterByDisplayName('Switch')))
     add('Card', await getModule(filterByDisplayName('Card')))
     add('Flex', await getModule(filterByDisplayName('Flex')))
+    
     console.log(components)
 }
