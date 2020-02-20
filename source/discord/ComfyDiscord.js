@@ -25,10 +25,11 @@ export default class ComfyDiscord
     async enable()
     {
         const React = await getModule(filterByProperties('Component', 'PureComponent'))
-        const test = name => (<h1>{name}</h1>)
-        this.custom_settings.addSection(test('Themes'))
-        this.custom_settings.addSection(test('Plugins'))
-        this.custom_settings.addSection(test('About'))
+        const test = name => [name, () => (<h1>{name}</h1>)]
+
+        this.custom_settings.addSection(...test('Themes'))
+        this.custom_settings.addSection(...test('Plugins'))
+        this.custom_settings.addSection(...test('About'))
 
         for (const patcher of this.patchers)
         {
