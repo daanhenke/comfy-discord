@@ -1,0 +1,28 @@
+{
+  "name": "@comfy/discord",
+  "version": "1.0.0",
+  "description": "A comfy Discord mod",
+  "main": "dist/comfy-discord.js",
+  "license": "WTFPL",
+  "author": {
+    "name": "Daan Henke",
+    "email": "daan@daan.vodka"
+  },
+  "scripts": {
+    "serve": "NODE_ENV=development webpack-dev-server"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.8.3",
+    "core-js": "^3.6.4",
+    "react": "^16.12.0",
+    "regenerator-runtime": "^0.13.3"
+  }
+}
