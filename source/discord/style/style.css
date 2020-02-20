@@ -1,0 +1,15 @@
+.cardPadded
+{
+    padding: 20px
+}
+
+.fadeInOnHover
+{
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+[class*="card-"]:hover .fadeInOnHover
+{
+    opacity: 1;
+}

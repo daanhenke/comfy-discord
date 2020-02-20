@@ -1,5 +1,7 @@
 import 'core-js'
 import 'regenerator-runtime'
+
+import './style/style'
 import ComfyDiscord from './ComfyDiscord'
 
 const main = async () =>
