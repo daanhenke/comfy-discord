@@ -7,7 +7,6 @@ export default class MessagePatcher
 {
 async patch()
 {
-    // TODO: ADD FILTER FOR THIS TYPE OF HOOKING
     const MessageModule = await getModule(filterDefault(filterByDisplayName('Message')))
 
     // Get Discord's data stores
