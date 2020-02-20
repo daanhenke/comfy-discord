@@ -12,16 +12,24 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 use: [
                     'babel-loader'
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
                 ]
             }
         ]
     },
     resolve: {
         extensions: [
-            '.js', '.jsx'
+            '.js', '.jsx',
+            '.css'
         ]
     }
 }
