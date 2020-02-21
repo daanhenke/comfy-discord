@@ -1,7 +1,7 @@
-import { waitForComponentByDOMNode } from "../util";
+import { modules as Modules } from "../modules"
 import { HookedObject } from "../../common/js";
 import { getModule } from "../../common/webpack";
-import { filterByProperties, filterSpecific, filterByDisplayName, filterDefault } from "../../common/filters";
+import { filterByProperties, filterByDisplayName, filterDefault } from "../../common/filters";
 
 export default class MessagePatcher
 {
@@ -43,8 +43,15 @@ async patch()
 
                     if (color)
                     {
+                        const original_color = getComputedStyle(document.documentElement).getPropertyValue('--text-normal')
+
+                        if (original_color.length > 0)
+                        {
+                            color = Modules.TinyColor.mix(color, original_color, window.meme || 10)
+                        }
+
                         result.props.style = result.props.style || {}
-                        result.props.style.color = props.message.colorString
+                        result.props.style.color = color
                     }
 
                     return result

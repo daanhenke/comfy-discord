@@ -1,32 +1,30 @@
-import * as common from '../common'
 import SettingsPatcher from './patches/SettingsPatcher'
 import CustomSettings from './data/CustomSettings'
 import { getModule } from '../common/webpack'
 import { filterByProperties } from '../common/filters'
 import MessagePatcher from './patches/MessagePatcher'
 import PluginsSection from './components/sections/PluginsSection'
-import { registerCommonComponents, components } from './ui'
+import { registerCommonComponents } from './ui'
+import { registerCommonModules } from './modules'
+import AccountConnectedPatcher from './patches/AccountConnectedPatcher'
 
 export default class ComfyDiscord
 {
     constructor()
     {
         this.patchers = [
-            new SettingsPatcher,
-            new MessagePatcher
+            //new SettingsPatcher,
+            new MessagePatcher,
+            //new AccountConnectedPatcher
         ]
 
         this.custom_settings = new CustomSettings
     }
 
-    get library()
-    {
-        return common
-    }
-
     async enable()
     {
-        registerCommonComponents()
+        await registerCommonComponents()
+        await registerCommonModules()
 
         const React = await getModule(filterByProperties('Component', 'PureComponent'))
         const test = name => [name, () => (<h1>{name}</h1>)]
